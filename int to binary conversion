@@ -1,0 +1,39 @@
+package com.company;
+import java.io.*;
+import java.util.Stack;
+
+public class Queue {
+
+    // Function to convert integer to binary
+    static void decimalToBinary(int num)
+    {
+        // Creating Stack Object Vector
+        Stack<Integer> st = new Stack<>();
+
+      
+        while (num > 0) {
+
+
+            st.push(num % 2);
+
+            num = num / 2;
+        }
+
+
+        while (!(st.isEmpty())) {
+
+
+            System.out.print(st.pop());
+        }
+    }
+
+
+
+    public static void main(String args[]){
+        int num = 66;
+        decimalToBinary(num);
+}
+
+
+
+}
