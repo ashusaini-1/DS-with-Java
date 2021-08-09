@@ -173,6 +173,7 @@ class linledlistr{
 
 }
 
+
 public class ll {
 
     public static void main(String args[]){
@@ -187,7 +188,228 @@ public class ll {
         obj.push(32);
          obj.getcount();
 
+    }}
+    
+    
+    
+    
+    
+    ****************************************************************************************************************************************************************************
+2nd method of linkedlist
+
+package com.company;
+
+
+import com.sun.org.apache.bcel.internal.generic.ARETURN;
+
+class LinkedList<currNode> {
+    Node head; // head of list
+
+    // Linked list Node.
+    // This inner class is made static
+    // so that main() can access it
+    static class Node {
+
+        int data;
+        Node next;
+
+        // Constructor
+        Node(int d) {
+            data = d;
+            next = null;
+        }
     }
+
+    public LinkedList insert(LinkedList list, int data) {
+        Node new_node = new Node(data);
+        new_node.next = null;
+        if (list.head == null) {
+            list.head = new_node;
+
+        } else {
+            Node curr = list.head;
+            while (curr.next != null) {
+                curr = curr.next;
+
+            }
+
+            curr.next = new_node;
+
+
+        }
+        return list;
+    }
+
+    // Method to print the LinkedList.
+    public void printList(LinkedList list) {
+        Node currNode = list.head;
+
+        System.out.print("LinkedList: ");
+
+        // Traverse through the LinkedList
+        while (currNode != null) {
+            // Print the data at current node
+            System.out.print(currNode.data + " ");
+
+            // Go to next node
+            currNode = currNode.next;
+        }
+    }
+
+
+    //key==data;
+    public LinkedList deleteByKey(LinkedList list, int key) {
+
+        Node currNode = list.head;
+        Node prev = null;
+
+        if (currNode != null && currNode.data == key) {
+            list.head = currNode.next;
+
+
+            System.out.println(key + " found and deleted");
+            return list;
+
+        }
+
+        while (currNode != null && currNode.data != key) {
+
+            prev = currNode;
+            currNode = currNode.next;
+        }
+        if (currNode != null) {
+            // Since the key is at currNode
+            // Unlink currNode from linked list
+            prev.next = currNode.next;
+
+            // Display the message
+            System.out.println(key + " found and deleted");
+        }
+
+
+        if (currNode == null) {
+            // Display the message
+            System.out.println(key + " not found");
+        }
+
+        // return the List
+        return list;
+    }
+
+
+    public LinkedList deleteAtPosition(LinkedList list,int index){
+
+        Node currNode = list.head, prev = null;
+
+        if(index==0 && currNode!=null){
+            list.head=currNode.next;
+
+            System.out.println(
+                    index + " position element deleted");
+
+            // Return the updated List
+            return list;
+
+
+        }
+
+        // The counter
+        int counter = 0;
+
+        // Count for the index to be deleted,
+        // keep track of the previous node
+        // as it is needed to change currNode.next
+        while (currNode != null) {
+
+            if (counter == index) {
+                // Since the currNode is the required
+                // position Unlink currNode from linked list
+                prev.next = currNode.next;
+
+                // Display the message
+                System.out.println(
+                        index + " position element deleted");
+                break;
+            } else {
+                // If current position is not the index
+                // continue to next node
+                prev = currNode;
+                currNode = currNode.next;
+                counter++;
+            }
+        }
+
+        if (currNode == null) {
+            // Display the message
+            System.out.println(
+                    index + " position element not found");
+        }
+
+        // return the List
+        return list;
+
+
+    }
+
+
+
+
+
+
+
+}
+
+public class revision {
+
+
+    public static void main(String args[]){
+
+        LinkedList list = new LinkedList();
+
+        //
+        // ******INSERTION******
+        //
+
+        // Insert the values
+        list.insert(list,1);
+        list.insert(list,2);
+        list.insert(list,3);
+        list.insert(list,4);
+        list.insert(list,5);
+        list.insert(list,6);
+        list.insert(list,7);
+        list.insert(list,8);
+
+        list.printList(list);
+
+
+
+
+
+        // Print the LinkedList
+
+
+
+
+    }
+}
+
+
+
+
+
+****************************************************************************************************************************************************************************
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 }
