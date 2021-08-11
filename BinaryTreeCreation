@@ -1,0 +1,42 @@
+package com.company;
+
+
+class Node{
+    int key;
+    Node left;
+    Node right;
+
+
+    public Node(int item){
+
+        key=item;
+        left = right = null;
+    }
+
+}
+
+class BinaryTree{
+
+    Node Root;
+    BinaryTree(int key){
+    }
+    BinaryTree(){
+        Root=null;
+    }
+}
+
+public class Binary_tree {
+
+
+    public static void main(String args[]){
+
+BinaryTree tree=new BinaryTree();
+tree.Root=new Node(1);
+
+tree.Root.left=new Node(2);
+tree.Root.right=new Node(3);
+        tree.Root.left.left = new Node(4);
+    }
+
+
+}
