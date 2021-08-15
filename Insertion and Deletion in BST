@@ -1,0 +1,244 @@
+package com.company;
+
+
+// Java program to insert element in binary tree
+import sun.management.snmp.jvminstr.JvmOSImpl;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+
+
+public class Binary_tree {
+
+static class Node{
+    int key;
+    Node left;
+    Node right;
+
+    Node(int key){
+        left=null;
+        right=null;
+        this.key=key;
+
+    }
+
+}
+
+static Node root;
+    static Node temp=root;
+
+    static void inorder(Node temp){
+        if(temp==null) return;
+
+
+        inorder(temp.left);
+        System.out.print(temp.key + " ");
+        inorder(temp.right);
+    }
+
+/*
+
+static void insert(Node temp,int key){
+        Node new_node=new Node(key);
+        if(temp==null){
+            root=new_node;
+            return;
+
+        }
+
+        Queue<Node> q=new LinkedList<Node>();
+        q.add(temp);
+
+        while(!q.isEmpty()){
+            temp=q.peek();
+            q.remove();
+
+            if(temp.left==null){
+                temp.left=new_node;
+                break;
+
+            }
+            q.add(temp.left);
+
+            if(temp.right==null){
+                temp.right=new_node;
+                break;
+
+
+            }
+else
+    q.add(temp.right);
+        }
+
+*/
+
+
+ static void deleteDeepest(Node root,Node delNode){
+
+            Queue<Node>q=new LinkedList<Node>();
+            q.add(root);
+            Node temp=null;
+
+            while(!q.isEmpty()){
+                temp=q.peek();
+                q.remove();
+
+                if(temp == delNode){
+                    temp=null;
+                    return;
+
+
+                }
+            if(temp.right!=null){
+
+                if(temp.right==delNode){
+                    temp.right=null;
+                    return;
+                }
+                else
+                    q.add(temp.right);
+            }
+
+            if(temp.left!=null){
+                temp.left=null;
+                return;
+
+
+            }
+            else
+                q.add(temp.left);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    public void postorder(Node temp){
+        if(temp==null) return;
+
+        postorder(temp.left);
+        postorder(temp.right);
+        System.out.println(temp.key);
+
+    }
+
+
+    public void preorder(Node temp){
+        if(temp==null) return;
+
+
+        System.out.println(temp.key);
+        preorder(temp.left);
+        preorder(temp.right);
+
+    }
+*/
+
+
+
+    static void delete(Node root,int key){
+
+        if(root==null)
+            return;
+
+        if(root.left==null && root.right==null){
+
+            if(root.key==key){
+                root=null;
+                return;
+
+
+
+            }
+            else
+                return;
+
+
+        }
+
+
+
+        Queue<Node> q=new LinkedList<Node>();
+        q.add(root);
+        Node temp=null,keyNode=null;
+
+        while(!q.isEmpty()){
+            temp=q.peek();
+            q.remove();
+
+            if(temp.key==key)
+                keyNode=temp;
+
+            if(temp.left!=null)
+                q.add(temp.left);
+
+
+            if(temp.right!=null)
+                q.add(temp.right);
+        }
+
+        if(keyNode!=null){
+            int x=temp.key;
+            deleteDeepest(root,temp);
+            keyNode.key=x;
+
+        }
+
+
+
+
+
+
+    }
+
+
+
+
+
+    public static void main(String args[]){
+
+/*
+        root = new Node(10);
+        root.left = new Node(11);
+        root.left.left = new Node(7);
+        root.right = new Node(9);
+        root.right.left = new Node(15);
+        root.right.right = new Node(8);
+
+        System.out.print(
+                "Inorder traversal before insertion:");
+        inorder(root);
+
+        int key = 12;
+        insert(root, key);
+
+        System.out.print(
+                "\nInorder traversal after insertion:");
+        inorder(root);
+
+
+*/
+
+
+
+
+    }
+
+
+}
