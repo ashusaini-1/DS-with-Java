@@ -1,0 +1,77 @@
+package com.company;
+import sun.security.mscapi.CPublicKey;
+
+import java.util.*;
+import java.util.Queue;
+class MyStack {
+    Queue<Integer> mainQueue, helperQueue;
+
+    public MyStack() {
+        mainQueue = new LinkedList<>();
+        helperQueue = new LinkedList<>();
+    }
+
+    /** Push element x onto stack. */
+    public void push(int x) {
+        mainQueue.add(x);
+    }
+
+    /** Removes the element on top of the stack and returns that element. */
+    public int pop() {
+        if(mainQueue.size() == 0) {
+            return -1;
+        } else {
+            while(mainQueue.size() != 1){
+                helperQueue.add(mainQueue.remove());
+            }
+            int remove = mainQueue.remove();
+            while(helperQueue.size() > 0){
+                mainQueue.add(helperQueue.remove());
+            }
+            return remove;
+        }
+    }
+
+    /** Get the top element. */
+    public int top() {
+        if(mainQueue.size() == 0) {
+            return -1;
+        } else {
+            while(mainQueue.size() != 1){
+                helperQueue.add(mainQueue.remove());
+            }
+            int top = mainQueue.remove();
+            while(helperQueue.size() > 0){
+                mainQueue.add(helperQueue.remove());
+            }
+            mainQueue.add(top);
+            return top;
+        }
+    }
+
+    /** Returns whether the stack is empty. */
+    public boolean empty() {
+        return mainQueue.isEmpty();
+    }
+}
+
+
+public class StackUsingQueue {
+
+    public static void main(String args[]){
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+}
