@@ -1,0 +1,42 @@
+/******************************Using Array***************************************************\
+
+
+
+package com.company;
+import java.util.*;
+
+
+public class PrioityQueue {
+
+
+    public static void man(String args[]){
+
+        PriorityQueue<Integer>pq=new PriorityQueue<>();
+        pq.add(5);
+        pq.add(43);
+        pq.add(12);
+        pq.add(45);
+
+       int st=pq.size();
+        while (!pq.isEmpty()){
+            System.out.println(pq.peek());
+            pq.poll();
+        }
+
+    }
+
+
+
+
+}
+/*******************************************************************\
+
+
+LinkedList Priority Queue*********************************************\
+
+
+
+
+
+
+
